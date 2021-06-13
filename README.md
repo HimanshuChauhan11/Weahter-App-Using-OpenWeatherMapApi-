@@ -1,4 +1,4 @@
-# Weahter-App-Using-OpenWeatherMapApi-
+# Weahter-App-Using-OpenWeatherMap API
 Weather App  Using OpenWeatherMapApi In Pure Node Js
 
 ## Technologies Used 
