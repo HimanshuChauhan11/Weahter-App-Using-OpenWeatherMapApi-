@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App | Node Js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            color: #fff;
+            overflow-x: hidden;
+            height: 100%;
+            background-color: #CFD8DC;
+            background-repeat: no-repeat
+        }
+
+        .card {
+            background-image: url("https://images.unsplash.com/photo-1539946309076-4daf2ea73899?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NzZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+            background-size: cover;
+            width: 600px;
+            height: 350px;
+            border-radius: 20px;
+            box-shadow: 0px 8px 16px 4px #9E9E9E;
+            margin-top: 50px;
+            margin-bottom: 50px
+        }
+
+        .time-font {
+            font-size: 50px
+        }
+
+        .sm-font {
+            font-size: 18px
+        }
+
+        .med-font {
+            font-size: 28px
+        }
+
+        .large-font {
+            font-size: 60px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid px-1 px-md-4 py-5 mx-auto">
+        <div class="row d-flex justify-content-center px-3">
+            <div class="card">
+                <h2 class="ml-auto mr-4 mt-3 mb-0" id="location">{%city%}, {%country%}</h2>
+                <p class="ml-auto mr-4 mb-0 med-font">{%weather%}</p>
+                <h1 class="ml-auto mr-4 large-font">{%temp%}&#176;</h1>
+                <p class="time-font mb-0 ml-4 mt-auto" id="time"></p>
+                <p class="ml-4 " id="date">Wednesday, 18 October 2019</p>
+                <p class="ml-4">Max {%tempMin%}&#176;| Max {%tempMax%}&#176;</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function RealDateTime() {
+
+            const Icon = document.getElementById('WeatherIcon');
+            const date = document.getElementById('date');
+            const time = document.getElementById('time')
+            const day = new Date();
+            const week = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+            const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+            const currentDay = week[day.getDay()];
+            const currentMonth = month[day.getMonth()];
+            const currentDate = day.getDate();
+            const currentTime = day.toLocaleTimeString();
+            const currentYear = day.getFullYear();
+            date.innerHTML = `${currentDay} , ${currentDate} ${currentMonth} ${currentYear}`;
+            time.innerHTML = `${currentTime}`;
+        }
+        setInterval(function () {
+            RealDateTime();
+        }, 100);
+
+    </script>
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
