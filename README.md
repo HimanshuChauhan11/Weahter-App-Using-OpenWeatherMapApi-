@@ -27,7 +27,7 @@ localhost:3000
 
 #### Node: Kindly Please update {city}, {API key} with your own City Name and API key in index.js 
 ## Example: 
-``
+```
 const server = http.createServer(function (req, res) {
   if (req.url == "/") {
     requests(
@@ -49,4 +49,4 @@ const server = http.createServer(function (req, res) {
     res.end("File not found | 404");
   }
 });
-``
+```
